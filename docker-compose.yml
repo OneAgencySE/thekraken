@@ -1,0 +1,16 @@
+version: "3"
+services:
+  cinode:
+    image: gustaveiman/cinodeapi:1.0.2
+    environment:
+      - CINODE_PASSWORD=${CINODE_PASSWORD}
+      - CINODE_EMAIL=${CINODE_EMAIL}
+      - CINODE_JSON_URL=${CINODE_JSON_URL}
+    ports:
+      - "8001:8001"
+  selenium:
+    image: selenium/standalone-chrome:3.13.0-argon
+    ports:
+      - "4444:4444"
+    volumes:
+      - /dev/shm:/dev/shm
