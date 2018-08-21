@@ -1,0 +1,30 @@
+server {
+
+	#This will require a port set to listen to.
+	#We recomend that you use cerbot to get it up and running with SSL right away
+	#Http over port 80 is ok for testing
+
+	root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name www.salesapi.oneagency.se salesapi.oneagency.se;
+
+        location /pbi/ {
+                alias /home/apisales/wwwroot/pbi/;
+                gzip_static on;
+                expires max;
+                add_header Cache-Control public;
+        }
+
+        location / {
+                alias /home/apisales/wwwroot/;
+                gzip_static on;
+                expires max;
+                add_header Cache-Control public;
+        }
+
+        location /api/ {
+                proxy_pass http://localhost:8001/;
+        }
+}
