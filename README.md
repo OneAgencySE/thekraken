@@ -49,6 +49,6 @@ Here is a basic guide on SSL for NGINX: https://www.digitalocean.com/community/t
 
 What is important is that `location /pbi/` points to `/wwwroot/pbi/index.html` and that `location /api/`poins to `localhost:{SERVICE_PORT}`.
 
-*Its is imperative to point `location /` to `wwwroot/index.html` so the ducky can be displayed to ward of evil sprits*
+*Its is imperative to point `location /` to `wwwroot/index.html` so the ducky can be displayed to ward of evil spirits*
 
 There is an example for how this could look here: https://github.com/OneAgencySE/thekraken/blob/master/nginx_routing
